@@ -1,6 +1,6 @@
 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="20" height="20" fill="#E5E5E5"/>
-<g clip-path="url(#clip0_0_1)">
+<g clipPath="url(#clip0_0_1)">
 <rect width="1512" height="982" transform="translate(-361 -48)" fill="white"/>
 <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-361" y="-48" width="1512" height="803">
 <rect x="-361" y="-48" width="1512" height="803" fill="#C4C4C4"/>
@@ -8,7 +8,7 @@
 <g mask="url(#mask0_0_1)">
 <rect x="-361" y="-554" width="1512" height="2016" fill="url(#pattern0)"/>
 </g>
-<g clip-path="url(#clip1_0_1)">
+<g clipPath="url(#clip1_0_1)">
 <path d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z" fill="#F0F0F0"/>
 <path d="M9.56522 10H20C20 9.09744 19.8797 8.22306 19.6555 7.3913H9.56522V10Z" fill="#D80027"/>
 <path d="M9.56522 4.78263H18.5322C17.9201 3.78372 17.1374 2.90079 16.2248 2.17392H9.56522V4.78263Z" fill="#D80027"/>

@@ -2,20 +2,21 @@ import React from 'react'
 import bambo from '../../public/brand/bambo.png'
 import Image from 'next/image'
 
-const FlightDetail = () => {
+const FlightDetail = (flight) => {
+    const detailFlight = flight.flight
     return (
 
         <div className='grid grid-flow-col grid-cols-11'>
             <div className='col-span-4 flex gap-4'>
                 <div className='flex flex-col justify-between'>
                     <span>
-                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">21:40 </h4>
-                        <p className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> 11 Feb </p>
+                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">{detailFlight.timeStart} </h4>
+                        <p className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> {detailFlight.dayFlight.split(',')[1]} </p>
                     </span>
-                    <span className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> 1h 30m </span>
+                    <span className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> {detailFlight.timeTotal}</span>
                     <span>
-                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">23:10 </h4>
-                        <p className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> 11 Feb </p>
+                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">{detailFlight.timeEnd}</h4>
+                        <p className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> {detailFlight.dayLand.split(',')[1]}  </p>
                     </span>
                 </div>
                 <div className=' py-4'>
@@ -28,36 +29,38 @@ const FlightDetail = () => {
                 <div className='flex flex-col justify-between ml-4'>
                     <div>
                         <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">
-                            Da nang (DAD)
+                            {detailFlight.from.name} ({detailFlight.from.code})
                         </h4>
                         <p className="font-normal text-black text-[12px] tracking-[0] leading-[normal]">
-                            Da Nang Airport
+                            {detailFlight.airportFrom}
                         </p>
                     </div>
                     <div>
                         <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">
-                            Ho Chi Minh City (SGN)
+                            {detailFlight.to.name} ({detailFlight.to.code})
                         </h4>
                         <p className="font-normal text-black text-[12px] tracking-[0] leading-[normal]">
-                            Tansonnhat Intl
+                            {detailFlight.airportTo}
                         </p>
                     </div>
                 </div>
             </div>
             <div className='col-span-7 '>
                 <div className='flex gap-3' >
-                    <Image src={bambo} alt='bambo' />
+                    <div className='h-[30px] w-[30px] border rounded-md items-center flex'>
+                        <Image src={detailFlight.logo} alt='bambo' className='mx-auto items-center'></Image>
+                    </div>
                     <div>
-                        <h4 className=" font-semibold text-black text-[14px] tracking-[1.40px] leading-[normal]">
-                            BAMBOO AIRWAYS
+                        <h4 className=" font-semibold text-black text-[14px] tracking-[1.40px] leading-[normal] uppercase">
+                            {detailFlight.name}
                         </h4>
                         <div className='flex gap-1 items-center'>
                             <div className=" font-normal text-black text-[12px] tracking-[0] leading-[normal]">
-                                QH-183
+                                {detailFlight.aircraftNumber}
                             </div>
                             <div className="w-[3px] h-[3px] bg-black rounded-full" />
                             <div className=" font-normal text-black text-[12px] tracking-[0] leading-[normal]">
-                                Economy
+                                {detailFlight.typeClass}
                             </div>
                         </div>
                     </div>
@@ -66,12 +69,12 @@ const FlightDetail = () => {
                     <div className='grid grid-cols-2 font-normal text-transparent text-[14px] tracking-[0] leading-[normal] gap-2 [font-family:"SVN-Biennale-Regular",_Helvetica]'>
                         <div className="[font-family:'SVN-Biennale-Regular',_Helvetica] font-normal text-transparent text-[14px] tracking-[0] leading-[normal]">
                             <span className="text-black ">Baggage </span>
-                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">20kg</span>
+                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">{detailFlight.baggage}</span>
                         </div>
                         <div>
                             <span className="text-black">Aircraft </span>
                             <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">
-                                Airbus A321
+                                {detailFlight.Aircraft}
                             </span>
                         </div>
                         <div>
@@ -94,13 +97,9 @@ const FlightDetail = () => {
                                 29 inches (standard)
                             </span>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
-
         </div >
     )
 }

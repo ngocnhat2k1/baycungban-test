@@ -3,7 +3,8 @@ import React from 'react'
 import bambo from '../../public/brand/bambo.png'
 
 
-const FareInfo = () => {
+const FareInfo = (flight) => {
+    const detailFlight = flight.flight
     return (
         <div className='grid grid-flow-col grid-cols-11'>
             <div className='col-span-4 flex gap-6 flex-col'>
@@ -11,27 +12,29 @@ const FareInfo = () => {
                     CONDITIONS
                 </div>
                 <div className='flex gap-3' >
-                    <Image src={bambo} alt='bambo' />
+                    <div className='h-[30px] w-[30px] border rounded-md items-center flex'>
+                        <Image src={detailFlight.logo} alt='bambo' className='mx-auto items-center'></Image>
+                    </div>
                     <div>
                         <h4 className=" font-semibold text-black text-[14px] tracking-[1.40px] leading-[normal]">
-                            BAMBOO AIRWAYS
+                            {detailFlight.name}
                         </h4>
                         <div className='flex gap-1 items-center'>
                             <div className=" font-normal text-black text-[12px] tracking-[0] leading-[normal]">
-                                QH-183
+                                {detailFlight.aircraftNumber}
                             </div>
                             <div className="w-[3px] h-[3px] bg-black rounded-full" />
                             <div className=" font-normal text-black text-[12px] tracking-[0] leading-[normal]">
-                                Economy
+                                {detailFlight.typeClass}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='flex gap-2  items-baseline'>
                     <span className=" text-black text-[14px] tracking-[0] leading-[normal]">
-                        Da Nang
+                        {detailFlight.from.name}
                         <p className=" text-[#4d46fa] text-[12px] tracking-[0] leading-[normal]">
-                            Economy
+                            {detailFlight.typeClass}
                         </p>
                     </span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="63" height="7" viewBox="0 0 63 7" fill="none">
@@ -40,7 +43,7 @@ const FareInfo = () => {
                         <line x1="6" y1="3.5" x2="56" y2="3.5" stroke="#4D46FA" />
                     </svg>
                     <span className=" text-black text-[14px] tracking-[0] leading-[normal]">
-                        Ho Chi Minh
+                        {detailFlight.to.name}
                     </span>
                 </div>
                 <p className=" text-black text-[12px] tracking-[0] leading-[normal]">
@@ -54,7 +57,7 @@ const FareInfo = () => {
                     </div>
                     <div className='flex justify-between'>
                         <span>Adult Basic Fare (x1)</span>
-                        <span className='font-bold'>1,326,000 vnd</span>
+                        <span className='font-bold'>{detailFlight.price} vnd</span>
                     </div>
                     <div className='flex justify-between'>
                         <span>Tax</span>
@@ -62,16 +65,16 @@ const FareInfo = () => {
                     </div>
                     <div className='flex justify-between'>
                         <span> Regular Total Price</span>
-                        <span>1,326,000 vnd</span>
+                        <span>  {detailFlight.priceSale} vnd</span>
                     </div>
                     <div className='flex justify-between'>
                         <span className="text-[#f06236]">Save</span>
-                        <span>1,326,000 vnd</span>
+                        <span> 0 vnd</span>
                     </div>
                     <div className='border-[1px] w-full'></div>
                     <div className='flex justify-between'>
                         <span >You pay</span>
-                        <span className="text-[#f06236] font-bold">1,326,000 vnd</span>
+                        <span className="text-[#f06236] font-bold">  {detailFlight.priceSale} vnd</span>
                     </div>
                 </div>
             </div>
