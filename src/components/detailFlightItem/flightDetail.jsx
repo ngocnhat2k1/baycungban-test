@@ -7,16 +7,16 @@ const FlightDetail = (flight) => {
     return (
 
         <div className='grid grid-flow-col grid-cols-11'>
-            <div className='col-span-4 flex gap-4'>
+            <div className='col-span-4 lg:flex gap-4 hidden '>
                 <div className='flex flex-col justify-between'>
                     <span>
-                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">{detailFlight.timeStart} </h4>
-                        <p className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> {detailFlight.dayFlight.split(',')[1]} </p>
+                        <h4 className="font-semibold text-black text-[14px]  ">{detailFlight.timeStart} </h4>
+                        <p className="font-normal text-black text-[12px] text-center  "> {detailFlight.dayFlight.split(',')[1]} </p>
                     </span>
-                    <span className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> {detailFlight.timeTotal}</span>
+                    <span className="font-normal text-black text-[12px] text-center  "> {detailFlight.timeTotal}</span>
                     <span>
-                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">{detailFlight.timeEnd}</h4>
-                        <p className="font-normal text-black text-[12px] text-center tracking-[0] leading-[normal]"> {detailFlight.dayLand.split(',')[1]}  </p>
+                        <h4 className="font-semibold text-black text-[14px]  ">{detailFlight.timeEnd}</h4>
+                        <p className="font-normal text-black text-[12px] text-center  "> {detailFlight.dayLand.split(',')[1]}  </p>
                     </span>
                 </div>
                 <div className=' py-4'>
@@ -28,24 +28,24 @@ const FlightDetail = (flight) => {
                 </div>
                 <div className='flex flex-col justify-between ml-4'>
                     <div>
-                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">
+                        <h4 className="font-semibold text-black text-[14px]  ">
                             {detailFlight.from.name} ({detailFlight.from.code})
                         </h4>
-                        <p className="font-normal text-black text-[12px] tracking-[0] leading-[normal]">
+                        <p className="font-normal text-black text-[12px]  ">
                             {detailFlight.airportFrom}
                         </p>
                     </div>
                     <div>
-                        <h4 className="font-semibold text-black text-[14px] tracking-[0] leading-[normal]">
+                        <h4 className="font-semibold text-black text-[14px]  ">
                             {detailFlight.to.name} ({detailFlight.to.code})
                         </h4>
-                        <p className="font-normal text-black text-[12px] tracking-[0] leading-[normal]">
+                        <p className="font-normal text-black text-[12px]  ">
                             {detailFlight.airportTo}
                         </p>
                     </div>
                 </div>
             </div>
-            <div className='col-span-7 '>
+            <div className='lg:col-span-7  col-span-full'>
                 <div className='flex gap-3' >
                     <div className='h-[30px] w-[30px] border rounded-md items-center flex'>
                         <Image src={detailFlight.logo} alt='bambo' className='mx-auto items-center'></Image>
@@ -55,46 +55,46 @@ const FlightDetail = (flight) => {
                             {detailFlight.name}
                         </h4>
                         <div className='flex gap-1 items-center'>
-                            <div className=" font-normal text-black text-[12px] tracking-[0] leading-[normal]">
+                            <div className=" font-normal text-black text-[12px]  ">
                                 {detailFlight.aircraftNumber}
                             </div>
                             <div className="w-[3px] h-[3px] bg-black rounded-full" />
-                            <div className=" font-normal text-black text-[12px] tracking-[0] leading-[normal]">
+                            <div className=" font-normal text-black text-[12px]  ">
                                 {detailFlight.typeClass}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className=" mt-4 w-[500px] h-[101px] top-0 left-0 bg-[#f4f2f9] rounded-[12px] p-4" >
-                    <div className='grid grid-cols-2 font-normal text-transparent text-[14px] tracking-[0] leading-[normal] gap-2 [font-family:"SVN-Biennale-Regular",_Helvetica]'>
-                        <div className="[font-family:'SVN-Biennale-Regular',_Helvetica] font-normal text-transparent text-[14px] tracking-[0] leading-[normal]">
+                <div className=" mt-4 lg:w-[500px] h-[101px] top-0 left-0 bg-[#f4f2f9] rounded-[12px] p-4" >
+                    <div className='grid grid-cols-2 font-normal text-transparent text-[14px]   gap-2 [font-family:"SVN-Biennale-Regular",_Helvetica]'>
+                        <div className="font-normal text-transparent lg:text-[14px] text-xs">
                             <span className="text-black ">Baggage </span>
-                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">{detailFlight.baggage}</span>
+                            <span className="  font-semibold text-[#4d46fa]">{detailFlight.baggage}</span>
                         </div>
-                        <div>
+                        <div className="font-normal text-transparent lg:text-[14px] text-xs">
                             <span className="text-black">Aircraft </span>
-                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">
+                            <span className="  font-semibold text-[#4d46fa]">
                                 {detailFlight.Aircraft}
                             </span>
                         </div>
-                        <div>
+                        <div className="font-normal text-transparent lg:text-[14px] text-xs">
                             <span className="text-black">In-flight </span>
-                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">Meal</span>
+                            <span className="  font-semibold text-[#4d46fa]">Meal</span>
                         </div>
-                        <div>
+                        <div className="font-normal text-transparent lg:text-[14px] text-xs">
                             <span className="text-black">Seat layout </span>
-                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">3-3</span>
+                            <span className="  font-semibold text-[#4d46fa]">3-3</span>
                         </div>
-                        <div>
+                        <div className="font-normal text-transparent lg:text-[14px] text-xs">
                             <span className="text-black">In-flight </span>
-                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">
+                            <span className="  font-semibold text-[#4d46fa]">
                                 Entertainment
                             </span>
                         </div>
-                        <div>
+                        <div className="font-normal text-transparent lg:text-[14px] text-xs">
                             <span className="text-black">Seat pitch </span>
-                            <span className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa]">
-                                29 inches (standard)
+                            <span className="  font-semibold text-[#4d46fa]">
+                                29 inches
                             </span>
                         </div>
                     </div>

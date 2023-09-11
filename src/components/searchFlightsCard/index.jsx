@@ -64,22 +64,21 @@ const SearchFlightsCard = () => {
     }, [openPassengers, openAddressFrom, openAddressTo]);
 
     return (
-        <div className='mt-44 max-w-[1230px]'>
-            <div className=" h-[224px] top-0 left-0 bg-white rounded-[12px] shadow-[0px_4px_30px_#4d46fa1a]" >
+        <div className='lg:mt-44 sm:mt-10 lg:max-w-[1230px] md:max-w-[800px] xs:max-w-md max-w-xs mt-8'>
+            <div className=" h-fit top-0 left-0 bg-white rounded-[12px] shadow-[0px_4px_30px_#4d46fa1a]" >
                 <div className='p-8 w-full'>
-                    <div className='flex flex-row gap-8'>
-                        <div >
-                            <label htmlFor="oneWay" className='flex gap-2 peer-checked/oneway:border-[6px] font-bold'>
+                    <div className='flex flex-col sm:flex-row gap-4 sm:gap-8 text-xs md:text-base'>
+                        <div className='flex gap-2 sm:gap-8'>
+                            <label htmlFor="oneWay" className='flex gap-2 peer-checked/oneway:border-[6px] font-bold '>
                                 <input type="radio" id="oneWay" name="typeFlight" value=" Oneway/Round-trip" checked="checked" onChange={() => setTypeFlight('Oneway/Round-trip')} className='peer/oneway hidden' />
-                                <div className='border w-6 h-6 rounded-full bg-[#F4F2F9] peer-checked/oneway:border-[6px] peer-checked/oneway:border-primary'></div>
+                                <div className='border w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-[#F4F2F9] peer-checked/oneway:border-[6px] peer-checked/oneway:border-primary'></div>
                                 One way / Round-trip</label>
-                        </div>
-                        <div >
                             <label htmlFor="multi" className='flex gap-2 peer-checked/multi:border-[6px] font-bold'>
                                 <input type="radio" id="multi" name="typeFlight" value=" Multi-city" onChange={() => setTypeFlight('Multi-city')} className='peer/multi hidden' />
-                                <div className='border w-6 h-6 rounded-full bg-[#F4F2F9] peer-checked/multi:border-[6px] peer-checked/multi:border-primary'></div>
+                                <div className='border w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-[#F4F2F9] peer-checked/multi:border-[6px] peer-checked/multi:border-primary'></div>
                                 Multi-city</label>
                         </div>
+
                         <div>
                             <div className='font-bold flex items-center cursor-pointer' onClick={() => setOpenPassengers(!openPassengers)}>
                                 <strong className='text-primary'>{passengers.adult} &nbsp;</strong>  Adult, &nbsp;<strong className='text-primary'>{passengers.children}&nbsp; </strong> children
@@ -90,14 +89,14 @@ const SearchFlightsCard = () => {
                                 <div ref={passengersModal} className=' absolute w-[300px] h-[200px] bg-white rounded-[12px] shadow-[0px_4px_30px_#4d46fa1a] z-50' >
                                     <div className='p-8'>
                                         <div className='flex justify-between'>
-                                            <h1 className='font-bold text-[24px]'>Passengers</h1>
+                                            <h1 className='font-bold text-base sm:text-lg'>Passengers</h1>
                                             <div className='flex items-center gap-2'>
                                                 <button className='font-bold text-[14px] text-[#4d46fa]' onClick={() => setOpenPassengers(!openPassengers)}>Done</button>
                                             </div>
                                         </div>
-                                        <div className='flex justify-between gap-4 mt-8'>
+                                        <div className='flex justify-between gap-4 mt-8 '>
                                             <div className='flex gap-2'>
-                                                <h2 className='font-bold text-[14px]'>Adult</h2>
+                                                <h2 className='font-bold text-xs md:text-base'>Adult</h2>
                                             </div>
                                             <div className='flex flex-row gap-4'>
                                                 <button className='font-bold text-[14px] text-[#4d46fa]' onClick={() => minusPassengers('adult')}>-</button>
@@ -106,7 +105,7 @@ const SearchFlightsCard = () => {
                                             </div>
                                         </div>
                                         <div className='flex justify-between gap-4 mt-8'>
-                                            <h2 className='font-bold text-[14px]'>Children</h2>
+                                            <h2 className='font-bold text-xs md:text-base'>Children</h2>
                                             <div className='flex flex-row gap-4'>
                                                 <button className='font-bold text-[14px] text-[#4d46fa]' onClick={() => minusPassengers('children')}>-</button>
                                                 <p className='font-bold text-[14px] text-[#4d46fa]'>{passengers.children}</p>
@@ -126,25 +125,24 @@ const SearchFlightsCard = () => {
                             </select>
                         </div>
                     </div>
-                    <div className='flex justify-between mt-5'>
-                        <div className='flex justify-between relative'>
-                            <div className="w-[300px] h-[100px] relative" onClick={() => setOpenAddressFrom(!openAddressFrom)}>
-                                <div className=" w-[300px] h-[100px] top-0 left-0 bg-white rounded-[12px] border-2 border-solid border-[#0000001a] p-5 cursor-pointer">
-                                    <h2 className="opacity-50 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[12px] tracking-[1.20px] leading-[normal]">
+                    <div className='flex justify-between mt-5 gap-6 flex-col sm:flex-row'>
+                        <div className='flex justify-between relative h-fit flex-col sm:flex-row'>
+                            <div className="lg:w-[300px] md:w-[200px] h-[100px] relative" onClick={() => setOpenAddressFrom(!openAddressFrom)}>
+                                <div className=" w-full h-[100px] top-0 left-0 bg-white rounded-[12px] border-2 border-solid border-[#0000001a] lg:p-5 md:pt-3 lg:pt-4 sm:pl-4 cursor-pointer p-3">
+                                    <h2 className="opacity-50   font-semibold text-black text-[12px] tracking-[1.20px] leading-[normal]">
                                         FROM
                                     </h2>
-                                    <h1 className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa] text-[24px] tracking-[0] leading-[normal] mt-1">
+                                    <h1 className="  font-semibold text-[#4d46fa] text-[24px] tracking-[0] leading-[normal] mt-1">
                                         {addressFrom.province}
                                     </h1>
-                                    <p className=" [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] tracking-[0] leading-[normal] mt-1">
+                                    <p className="   font-semibold text-black text-[14px] tracking-[0] leading-[normal] mt-1">
                                         {addressFrom.country}
                                     </p>
                                 </div>
-                                <div className='w-[27px] h-[60px] absolute top-[20%] rounded-l-full right-0 bg-white border-2 border-r-0 z-10'></div>
+                                <div className='w-[27px] h-[60px] absolute top-[20%] rounded-l-full right-0 bg-white border-2 border-r-0 z-10 hidden sm:block'></div>
                             </div>
                             {openAddressFrom &&
-                                <div ref={fromModal} className='absolute top-[100%] left-0 w-[300px] h-[200px] bg-white rounded-[12px] shadow-[0px_4px_30px_#4d46fa1a] z-50'>
-
+                                <div ref={fromModal} className='absolute top-[40%] sm:top-[100] left-0 w-[300px] h-[200px] bg-white rounded-[12px] shadow-[0px_4px_30px_#4d46fa1a] z-50'>
                                     <div className='p-8'>
                                         <div className='flex justify-between'>
                                             <div className='flex items-center gap-2'>
@@ -167,25 +165,25 @@ const SearchFlightsCard = () => {
                                 </div>
 
                             }
-                            <div className=' items-center flex min-w-[25px]' onClick={() => swapAddress()}>
+                            <div className=' items-center flex lg:min-w-[25px] md:min-w-[16px] h-14 justify-center sm:h-auto' onClick={() => swapAddress()}>
                                 <Image src={changeIcon} alt='icon'></Image>
                             </div>
-                            <div className="w-[300px] h-[100px] relative" onClick={() => setOpenAddressTo(!openAddressTo)}>
-                                <div className=" w-[300px] h-[100px] top-0 left-0 bg-white rounded-[12px] border-solid border-primary border-2 p-5 pl-12 cursor-pointer" >
-                                    <h2 className="opacity-50 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[12px] tracking-[1.20px] leading-[normal]">
+                            <div className="lg:w-[300px] md:w-[200px] h-[100px] relative" onClick={() => setOpenAddressTo(!openAddressTo)}>
+                                <div className=" h-[100px] bg-white rounded-[12px] border-solid border-primary border-2 lg:p-4 md:pt-3 lg:pl-12 sm:pl-9 cursor-pointer p-3" >
+                                    <h2 className="opacity-50 font-semibold text-black text-[12px] tracking-[1.20px] leading-[normal]">
                                         TO
                                     </h2>
-                                    <h1 className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-[#4d46fa] text-[24px] tracking-[0] leading-[normal] mt-1">
+                                    <h1 className="  font-semibold text-[#4d46fa] text-[24px] tracking-[0] leading-[normal] mt-1">
                                         {addressTo.province}
                                     </h1>
-                                    <p className=" [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] tracking-[0] leading-[normal] mt-1">
+                                    <p className="   font-semibold text-black text-[14px] tracking-[0] leading-[normal] mt-1">
                                         {addressTo.country}
                                     </p>
                                 </div>
-                                <div className='w-[27px] h-[60px] absolute top-[20%] rounded-r-full -left-0 bg-white border-2 border-l-0 border-primary z-10'></div>
+                                <div className='w-[27px] h-[60px] absolute top-[20%] rounded-r-full -left-0 bg-white border-2 border-l-0 border-primary z-10 hidden sm:block'></div>
                             </div>
                             {openAddressTo &&
-                                <div ref={toModal} className='absolute top-[100%] right-0 w-[300px] h-[200px] bg-white rounded-[12px] shadow-[0px_4px_30px_#4d46fa1a] z-50'>
+                                <div ref={toModal} className='absolute top-[100%] left-0 sm:left-auto sm:right-0 w-[300px] h-[200px] bg-white rounded-[12px] shadow-[0px_4px_30px_#4d46fa1a] z-50'>
                                     <div className='p-8'>
                                         <div className='flex justify-between'>
                                             <div className='flex items-center gap-2'>
@@ -209,14 +207,12 @@ const SearchFlightsCard = () => {
 
                             }
                         </div>
-                        <div className="w-[530px] h-[100px]">
+                        <div className="">
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <div className=" w-[530px] h-[100px] bg-white rounded-[12px] border border-solid border-[#0000001a] grid grid-flow-col grid-cols-2 p-4" >
-
+                                <div className="bg-white rounded-[12px] border border-solid border-[#0000001a] grid grid-flow-col grid-cols-2 lg:p-4 md:p-[14px] p-3 " >
                                     <div>
-
                                         <div className="relative pr-5">
-                                            <h2 className="opacity-50 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[12px] tracking-[1.20px] leading-[normal] uppercase">
+                                            <h2 className="opacity-50 font-semibold text-black lg:text-[12px] md:text-[10px] tracking-[1.20px] leading-[normal] uppercase">
                                                 Departure
                                             </h2>
                                             <DatePicker
@@ -225,7 +221,7 @@ const SearchFlightsCard = () => {
                                                 minDate={dayjs(new Date())}
                                                 sx={{
                                                     // bgcolor: 'red'
-                                                    width: '85%',
+                                                    // width: '85%',
                                                     displayPrint: 'none',
                                                     '& .css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
                                                         border: 'none'
@@ -242,7 +238,7 @@ const SearchFlightsCard = () => {
                                                         color: '#4d46fa',
                                                     }
                                                 }}
-                                            />
+                                                className='lg:w-[85%] md:h-[40px] md-w-full text-xs md:color-primary md:sm:-translate-y-1 lg:translate-y-0' />
 
                                             <div className='flex gap-2 cursor-pointer'>
                                                 <div onClick={() => {
@@ -250,17 +246,17 @@ const SearchFlightsCard = () => {
                                                         setDateFrom(new Date(dateFrom.setDate(new Date(dateFrom.getDate() - 1))))
                                                     }
                                                 }}
-                                                    className="opacity-40 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] tracking-[0] leading-[normal]"
+                                                    className="opacity-40 font-semibold text-black lg:text-[14px] md:text-[12px] "
                                                 >Prev</div>
                                                 <div onClick={() => {
                                                     setDateFrom(new Date(dateFrom.setDate(new Date(dateFrom.getDate() + 1))))
                                                     setDateTo(dateFrom)
-                                                }} className="opacity-40 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] tracking-[0] leading-[normal]">Next</div>
+                                                }} className="opacity-40   font-semibold text-black lg:text-[14px] md:text-[12px] ">Next</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div> <div className="relative pr-5 " >
-                                        <h2 className="opacity-50 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[12px] tracking-[1.20px] leading-[normal] uppercase">
+                                        <h2 className="opacity-50 font-semibold text-black lg:text-[12px] md:text-[10px] tracking-[1.20px] leading-[normal] uppercase">
                                             return
                                         </h2>
                                         <DatePicker
@@ -286,6 +282,7 @@ const SearchFlightsCard = () => {
                                                     color: '#4d46fa',
                                                 }
                                             }}
+                                            className='lg:w-[85%] md:h-[40px] md:w-full text-xs md:color-primary leading-3 md:-translate-y-1 lg:translate-y-0'
                                         />
                                         <div className='flex gap-2 cursor-pointer'>
                                             <div onClick={() => {
@@ -294,12 +291,12 @@ const SearchFlightsCard = () => {
                                                 }
                                             }
                                             }
-                                                className="opacity-40 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] tracking-[0] leading-[normal]"
+                                                className="opacity-40   font-semibold text-black lg:text-[14px] md:text-[12px]"
                                             >Prev</div>
                                             <div onClick={() =>
                                                 setDateTo(new Date(dateTo.setDate(new Date(dateTo.getDate() + 1))))
                                             }
-                                                className="opacity-40 [font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] tracking-[0] leading-[normal]"
+                                                className="opacity-40   font-semibold text-black lg:text-[14px] md:text-[12px]"
                                             >Next</div>
                                         </div>
 
@@ -310,9 +307,9 @@ const SearchFlightsCard = () => {
                         </div>
 
                     </div>
-                    <div className='w-full flex justify-end cursor-pointer' onClick={() => { router.push('/flight-schedule') }}>
+                    <div className='w-full flex justify-end cursor-pointer' >
                         <div className=" w-[245px] h-[60px] bg-primary rounded-[12px] flex items-center justify-between mt-4 end-0 p-6">
-                            <div className="  font-semibold text-white text-[18px] tracking-[0] leading-[normal] ">
+                            <div className="  font-semibold text-white text-[18px] tracking-[0] leading-[normal] " onClick={() => { router.push('/flight-schedule') }}>
                                 Search Flights
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="white" d="m359.873 121.377l-22.627 22.627l95.997 95.997H16v32.001h417.24l-95.994 95.994l22.627 22.627L494.498 256L359.873 121.377z" /></svg>                        </div>

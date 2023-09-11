@@ -20,6 +20,25 @@ module.exports = {
         'primary': '#4D46FA',
         'secondary': '#679289',
       },
+      screens: {
+        "2xl": "1535px",
+        // => @media (max-width: 1535px) { ... }
+
+        xl: "1279px",
+        // => @media (max-width: 1279px) { ... }
+
+        lg: "1023px",
+        // => @media (max-width: 1023px) { ... }
+
+        md: "767px",
+        // => @media (max-width: 767px) { ... }
+
+        sm: "639px",
+        // => @media (max-width: 639px) { ... }
+
+        xs: "479px",
+        // => @media (max-width: 479px) { ... }
+      },
     },
   },
   plugins: [],

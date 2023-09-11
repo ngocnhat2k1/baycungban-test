@@ -7,8 +7,8 @@ const FareInfo = (flight) => {
     const detailFlight = flight.flight
     return (
         <div className='grid grid-flow-col grid-cols-11'>
-            <div className='col-span-4 flex gap-6 flex-col'>
-                <div className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] leading-[normal]">
+            <div className='col-span-4 lg:flex gap-6 flex-col hidden'>
+                <div className="  font-semibold text-black text-[14px] leading-[normal]">
                     CONDITIONS
                 </div>
                 <div className='flex gap-3' >
@@ -50,29 +50,29 @@ const FareInfo = (flight) => {
                     Non - Refundable
                 </p>
             </div>
-            <div className='col-span-7 flex gap-4'>
-                <div className='col-span-4 flex gap-2 flex-col w-4/5'>
-                    <div className="[font-family:'SVN-Biennale-SemiBold',_Helvetica] font-semibold text-black text-[14px] leading-[normal]">
+            <div className='lg:col-span-7 flex gap-4 col-span-full' >
+                <div className='lg:col-span-4 col-span-full w-full flex gap-2 flex-col lg:w-4/5'>
+                    <div className="  font-semibold text-black text-[14px] leading-[normal]">
                         PRICE DETAILS
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between text-sx md:text-base'>
                         <span>Adult Basic Fare (x1)</span>
                         <span className='font-bold'>{detailFlight.price} vnd</span>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between text-sx md:text-base'>
                         <span>Tax</span>
                         <span>included</span>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between text-sx md:text-base'>
                         <span> Regular Total Price</span>
                         <span>  {detailFlight.priceSale} vnd</span>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between text-sx md:text-base'>
                         <span className="text-[#f06236]">Save</span>
                         <span> 0 vnd</span>
                     </div>
                     <div className='border-[1px] w-full'></div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between text-sx md:text-base'>
                         <span >You pay</span>
                         <span className="text-[#f06236] font-bold">  {detailFlight.priceSale} vnd</span>
                     </div>
