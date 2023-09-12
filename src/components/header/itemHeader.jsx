@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
-const ItemHeader = (item, key) => {
-    const { active } = useActiveLink(item.item.href)
+const ItemHeader = ({ item, key, styleCss }) => {
+    const { active } = useActiveLink(item.href)
     const path = usePathname()
+    console.log(styleCss);
     return (
-        <li className={`hidden sm:block hover:scale-110  duration-100 text-center px-1  py-2 ${active ? " bg-[#5f58fb] rounded-[100px] text-white " : ''} ${path === '/' ? "text-black" : "text-white"}`}>
-            <Link href={item.item.href}>{item.item.name}</Link></li>
+        <li key={key} className={` sm:block hover:scale-110  duration-100 text-center px-2  py-2 ${active ? " bg-[#5f58fb] rounded-[100px] !text-white " : ''} ${path === '/' ? "text-black" : "text-white"} ${styleCss}`}>
+            <Link href={item.href}>{item.name}</Link>
+        </li>
     )
 }
 

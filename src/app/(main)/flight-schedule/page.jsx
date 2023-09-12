@@ -38,8 +38,8 @@ const Page = () => {
                                 {addressFrom.time}
                             </p>
                         </div>
-                        <div className=' items-center flex min-w-[25px]' onClick={() => swapAddress()}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="14" viewBox="0 0 26 14" fill="none">
+                        <div className=' items-center flex min-w-[25px] cursor-pointer ' onClick={() => swapAddress()}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="14" viewBox="0 0 26 14" fill="none" className='hover:scale-[120%] duration-150'>
                                 <g opacity="0.3">
                                     <path d="M6.35712 5.28091H17.531V2.27258H6.35712V0L0 3.67016L6.35712 7.34037V5.28091Z" fill="black" />
                                     <path d="M7.64636 11.7274H18.8203V14L25.1773 10.3298L18.8203 6.65964V8.71905H7.64636V11.7274Z" fill="black" />
@@ -63,7 +63,7 @@ const Page = () => {
                         <span>Business Class</span>
                     </div>
                     <div className='flex col-span-3 justify-end'>
-                        <div className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[10px] relative bg-[#f06236] rounded-[12px] cursor-pointer" onClick={() => { router.push('/') }}>
+                        <div className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[10px] relative bg-[#f06236] rounded-[12px] cursor-pointer hover:bg-primary duration-150 " onClick={() => { router.push('/') }}>
                             <div className="relative w-fit mt-[-1.00px]  font-semibold text-white  text-sm   flex gap-3">
                                 Change Flights
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
@@ -186,7 +186,7 @@ const Page = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-center">
-                                        <div className="flex w-5/6 cursor-pointer items-center justify-center gap-[10px] px-[16px] py-[10px] relative bg-[#4d46fa1a] rounded-[12px] mt-[-1.00px]  font-semibold text-[#4d46fa] text-[10px] lg:text-xs ">
+                                        <div className="flex w-5/6 cursor-pointer items-center justify-center gap-[10px] px-[16px] py-[10px] relative bg-[#4d46fa1a] hover:bg-primary hover:text-white rounded-[12px] mt-[-1.00px]  font-semibold text-[#4d46fa] text-[10px] lg:text-xs ">
                                             Change departure flight
                                         </div>
                                     </div>
